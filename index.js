@@ -1,6 +1,7 @@
 const express = require('express')
 const env = require('dotenv')
 const cors = require('cors')
+const baseRouter = require('./routes/baseRoute')
 
 env.config();
 
@@ -13,9 +14,7 @@ app.use(cors({
     origin:'http://localhost:5173'
 }))
 // Routes
-app.use('/api/v1', (req,res) => {
-    
-})
+app.use('/api/v1', baseRouter)
 
 // Listen app 
 app.listen(3000, () => {
